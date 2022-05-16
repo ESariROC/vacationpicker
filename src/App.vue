@@ -1,15 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <vacation-picker />
+  <li class="list-group-item" v-for="country in countryData.countries" v-bind:key="country.id">
+    {{country.name}}
+  </li>
+  <p>Teller = {{counter}}</p>
+  <button v-on:click="counter++" class="btn btn-success">+</button>
+  <button v-on:click="counter--" class="btn btn-danger">-</button>
+  <p>Teller 2= {{count}}</p>
+  <button @click="increment()" class="btn btn-success">+</button>
+  <button @click="decrement()" class="btn btn-danger">-</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import countryData from './data/countryData'
+import VacationPicker from "@/components/VacationPicker";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    VacationPicker
+},
+  data(){
+    return {
+      countryData,
+      counter: 0,
+      count: 0
+    }
+  },
+  methods:{
+    increment(){
+      this.count++;
+    },
+    decrement(){
+      this.count--;
+    }
   }
 }
 </script>
@@ -24,3 +47,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+
