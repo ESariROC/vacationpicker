@@ -6,7 +6,7 @@ const countryData = {
             capital: 'Washington',
             cost: 1250,
             details: 'United States are among the most visited',
-            img: 'washington.jpg'
+            img: 'https://cdn.wallpapersafari.com/59/0/j2Nk4r.jpg'
         },
         {
             id:2,
@@ -14,7 +14,7 @@ const countryData = {
             capital: 'Amsterdam',
             cost: 795,
             details: 'The capital of the Netherlands',
-            img: 'amsterdam.jpg'
+            img: 'https://wallpaperaccess.com/full/2827309.jpg'
         },
         {
             id:3,
@@ -22,7 +22,7 @@ const countryData = {
             capital: 'Berlin',
             cost: 895,
             details: 'The capital of Germany',
-            img: 'berlin.jpg'
+            img: 'https://wallpapers-hub.art/wallpaper-images/775617.jpg'
         },
     ]
 }
