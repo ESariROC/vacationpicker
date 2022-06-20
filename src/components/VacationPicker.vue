@@ -24,6 +24,23 @@
               {{country}}
             </li>
           </ul>
+          <h2>Destinations cheaper than:</h2>
+          <select class="form-control-lg"
+                  v-model="selectedCost"
+                  @change="filterCountries()">
+                  <option v-for="(cost, index) in costs"
+                          :key="index"
+                          :value="cost">
+                          {{ cost }}
+                  </option>
+          </select>
+          <ul class="list-group">
+            <li v-for="(country, index) in filteredCountries"
+                :key="index"
+                class="list-group-item">
+              {{ country.name }} (EUR: {{ country.cost}})
+            </li>
+          </ul>
         </div>
       </div>
       <div class="col-12 col-md-6">
@@ -72,7 +89,10 @@ export default {
       selectedCountryIndex: 0,
       counter:0,
       newCountry: "",
-      newCountries: []
+      newCountries: [],
+      selectedCost: 500,
+      costs: [250, 500, 750, 1000, 1250, 1500],
+      filteredCountries: []
     }
   },
   methods: {
@@ -93,6 +113,10 @@ export default {
     getImgUrl() {
       this.selectedCountryIndex ;
     },
+    filterCountries() {
+      this.filteredCountries = this.countryData.countries
+          .filter(country => country.cost < this.selectedCost)
+    }
   },
   computed: {
     selectedCountry(){
