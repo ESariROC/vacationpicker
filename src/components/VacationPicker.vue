@@ -16,10 +16,18 @@
               <button @click="increment()" class="btn btn-success px-4">+</button>
             </div>
           </div>
+          <h2>Nieuw land toevoegen</h2>
+          <input type="text" v-model="newCountry"/> <button class="btn btn-dark" @click="addCountry()">Toevoegen</button>
+          <h3>{{newCountry}}</h3>
+          <ul class="list-group">
+            <li class="list-group-item" v-for="(country, index) in newCountries" :key="index">
+              {{country}}
+            </li>
+          </ul>
         </div>
       </div>
       <div class="col-12 col-md-6">
-        <h2>selected countries</h2>
+        <h2>Selected countries</h2>
         <ul class="list-group">
           <li class="list-group-item">
             {{selectedCountry.id}}
@@ -49,20 +57,29 @@
       </div>
     </div>
   </div>
-
 </template>
+
 <script>
 import countryData from '@/data/countryData'
+import mixins from "@/mixins/mixins.js";
+//import CountryDetail from "@/components/CountryDetail";
 export default {
   name: "VacationPicker",
+  mixins: [mixins],
   data(){
     return {
       countryData,
       selectedCountryIndex: 0,
-      counter:0
-    };
+      counter:0,
+      newCountry: "",
+      newCountries: []
+    }
   },
   methods: {
+    addCountry() {
+      this.newCountries.push(this.newCountry);
+      this.newCountry = "";
+    },
     increment() {
       this.selectedCountryIndex++;
     },

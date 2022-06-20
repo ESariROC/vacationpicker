@@ -24,6 +24,22 @@ const countryData = {
             details: 'The capital of Germany',
             img: 'https://wallpapers-hub.art/wallpaper-images/775617.jpg'
         },
+        {
+            id:4,
+            name: 'France',
+            capital: 'Paris',
+            cost: '700',
+            details: 'The capital of France',
+            img: 'https://cdn.wallpapersafari.com/95/17/jA06IS.jpg'
+        },
+        {
+            id:5,
+            name: 'Turkey',
+            capital: 'Istanbul',
+            cost: '400',
+            details: 'The capital of Turkey',
+            img: 'https://img5.goodfon.com/wallpaper/nbig/3/dc/turtsiia-stambul-sultanahmet.jpg'
+        }
     ]
 }
 export default countryData;
